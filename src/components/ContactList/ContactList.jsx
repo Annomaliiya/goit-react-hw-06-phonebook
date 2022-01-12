@@ -1,18 +1,3 @@
-// import PropTypes from "prop-types";
-// import styles from "./ContactList.module.css";
-
-// const ContactList = ({ contacts, deleteFunction }) => {
-//     const renderContacts = contacts.map(({id, name, number}) => (
-//         <li key={name} className={styles.contactsListItem}>{name} {number}
-//         <button onClick={() => deleteFunction(id)} className={styles.btnDelete} >X</button>
-//         </li>
-
-//         ))
-
-//     return (
-//         <ul className={styles.contactsList}>
-//             {renderContacts }</ul>)
-// }
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import * as actions from "../../redux/contacts/contacts-actions";
