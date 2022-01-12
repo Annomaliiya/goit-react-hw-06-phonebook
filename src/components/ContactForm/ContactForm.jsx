@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import * as actions from "../../redux/contacts/contacts-actions";
 import { getContacts } from "../../redux/contacts/contacts-selectors";
 
-import PropTypes from "prop-types";
 import s from "./ContactForm.module.css";
 
 function ContactForm() {
@@ -28,8 +27,13 @@ function ContactForm() {
       name: e.currentTarget.name.value,
       number: e.currentTarget.number.value,
     };
-    if (contacts.find((el) => el.name === contact.name)) {
-      alert(`${contact.name} is already in contacts!`);
+    if (
+      contacts.some((contact) => {
+        return contact.name.toLowerCase() === name.toLowerCase();
+      })
+    ) {
+      alert(name + " is already in contacts.");
+      return;
     } else {
       dispatch(actions.addContact(contact));
     }
@@ -70,9 +74,5 @@ function ContactForm() {
     </form>
   );
 }
-
-ContactForm.propTypes = {
-  onSubmit: PropTypes.func,
-};
 
 export default ContactForm;

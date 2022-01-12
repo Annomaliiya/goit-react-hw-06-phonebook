@@ -6,7 +6,6 @@ import {
   getFilter,
 } from "../../redux/contacts/contacts-selectors";
 
-import PropTypes from "prop-types";
 import s from "./ContactList.module.css";
 
 function ContactList() {
@@ -32,14 +31,3 @@ function ContactList() {
   );
 }
 export default ContactList;
-
-const contactShape = {
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
-};
-
-ContactList.propTypes = {
-  contacts: PropTypes.arrayOf(PropTypes.shape(contactShape)).isRequired,
-  onDeleteContact: PropTypes.func,
-};
